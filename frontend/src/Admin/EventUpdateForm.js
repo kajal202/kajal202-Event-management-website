@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 
 const EventUpdateForm = () => {
-  const { id } = useParams(); // Get the event ID from URL params
-  const navigate = useNavigate(); // Navigate programmatically after the update
+  const { id } = useParams(); 
+  const navigate = useNavigate(); 
+  
   const [event, setEvent] = useState({
     title: '',
     description: '',
@@ -13,7 +14,7 @@ const EventUpdateForm = () => {
     category: '',
   });
 
-  // Fetch the event details when the component is mounted
+  // Fetch the event details 
   const fetchEvent = async () => {
     try {
       const response = await fetch(`/events/${id}`);
@@ -21,21 +22,21 @@ const EventUpdateForm = () => {
         throw new Error('Event not found');
       }
       const data = await response.json();
-      setEvent(data); // Pre-fill form with event data
+      setEvent(data); 
     } catch (error) {
       console.error('Error fetching event:', error);
     }
   };
 
   useEffect(() => {
-    fetchEvent(); // Fetch event data on component mount
+    fetchEvent();
   }, [id]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setEvent((prevEvent) => ({
       ...prevEvent,
-      [name]: value, // Update state on input change
+      [name]: value, 
     }));
   };
 
@@ -48,13 +49,13 @@ const EventUpdateForm = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(event), // Send the updated event data to the server
+        body: JSON.stringify(event), 
       });
 
       if (response.ok) {
         console.log('Event updated successfully');
         window.alert('Event updated successfully');
-        navigate(`/manage-events`); // Optionally navigate to the event details page after successful update
+        navigate(`/manage-events`); 
       } else {
         console.error('Failed to update event');
         window.alert('Failed to update event');
