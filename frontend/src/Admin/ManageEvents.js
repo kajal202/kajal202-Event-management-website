@@ -7,16 +7,16 @@ import { RiDeleteBin6Fill } from 'react-icons/ri';
 const ManageEvents = () => {
   const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [totalCount, setTotalCount] = useState(0); // Store the total count of events
-  const [currentPage, setCurrentPage] = useState(1); // Track current page
-  const [eventsPerPage] = useState(4); // Number of events per page
+  const [totalCount, setTotalCount] = useState(0); 
+  const [currentPage, setCurrentPage] = useState(1); 
+  const [eventsPerPage] = useState(4); 
 
-  // Fetch events from the backend
+  // Fetch all events 
   const fetchEvents = async () => {
     setLoading(true);
     try {
       const response = await axios.get(`/events?page=${currentPage}&limit=${eventsPerPage}`);
-      setEvents(response.data); // Store fetched events
+      setEvents(response.data); 
     } catch (error) {
       console.error('Error fetching events:', error);
     } finally {
@@ -28,7 +28,7 @@ const ManageEvents = () => {
   const fetchTotalCount = async () => {
     try {
       const response = await axios.get('/events/count');
-      setTotalCount(response.data.totalCount); // Store the total count of events
+      setTotalCount(response.data.totalCount); 
     } catch (error) {
       console.error('Error fetching total event count:', error);
     }
@@ -38,16 +38,15 @@ const ManageEvents = () => {
   useEffect(() => {
     fetchEvents();
     fetchTotalCount();
-  }, [currentPage]); // Re-fetch when the page changes
+  }, [currentPage]); 
 
-  // Handle page change
   const handlePageChange = (pageNumber) => {
     if (pageNumber > 0 && pageNumber <= Math.ceil(totalCount / eventsPerPage)) {
-      setCurrentPage(pageNumber); // Set the current page when changing pages
+      setCurrentPage(pageNumber); 
     }
   };
 
-  // Calculate the total number of pages
+  // Total number of pages
   const totalPages = Math.ceil(totalCount / eventsPerPage);
 
 
@@ -67,7 +66,7 @@ const ManageEvents = () => {
     <div className="container mx-auto p-6 mt-10 min-h-80">
       <h1 className="text-2xl font-semibold text-center mb-8">Manage Events</h1>
 
-      {/* Loading Spinner */}
+      {/* Spinner for loading data state */}
       {loading ? (
         <div className="flex justify-center items-center mb-8">
           <div className="w-16 h-16 border-4 border-t-transparent border-blue-500 border-solid rounded-full animate-spin"></div>
@@ -110,7 +109,7 @@ const ManageEvents = () => {
         </div>
       )}
 
-      {/* Pagination Controls */}
+      {/* Pagination */}
       <div className="flex justify-center mt-4">
         <button
           onClick={() => handlePageChange(currentPage - 1)}
