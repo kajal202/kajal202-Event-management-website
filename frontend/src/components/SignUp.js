@@ -30,7 +30,7 @@ function SignUp({ onClose }) {
         console.log('res', res);
         if (res.status === 200) {
             window.alert('User created successfully');
-            onClose(); // Close the modal after successful registration
+            onClose(); 
             navigate('/Login');
         } else {
             window.alert('Oops, error');
