@@ -7,7 +7,7 @@ const ContactUs = () => {
         email: '',
         message: '',
     });
-    // send-Message
+  
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitMessage, setSubmitMessage] = useState('');
 
@@ -36,7 +36,7 @@ const ContactUs = () => {
         } catch (error) {
             setSubmitMessage('There was an error sending your message. Please try again later.');
         } finally {
-            setIsSubmitting(false); // Make sure to stop the "sending" state
+            setIsSubmitting(false); 
         }
     };
 
