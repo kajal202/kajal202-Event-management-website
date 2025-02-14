@@ -43,7 +43,7 @@ const EventDetails = () => {
         <div className="mt-5">
           <img
             src={event.image ? event.image : '/sangeet1.jpg'}
-            alt={event?.title || 'Event'} // Ensure alt text is also dynamic
+            alt={event?.title || 'Event'} 
             className="w-full max-h-60 object-cover rounded-lg"
           />
           <h2 className="my-5 text-4xl font-semibold text-gray-800">{event.title}</h2>
@@ -63,7 +63,7 @@ const EventDetails = () => {
               <strong>Location:</strong> {event.location}
             </p>
 
-            {/* Back to event list button */}
+            {/* Back to event  */}
             <button
               onClick={() => window.history.back()}
               className="px-4 py-2 bg-blue-800 text-white rounded-lg hover:bg-blue-600"
