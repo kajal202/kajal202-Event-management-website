@@ -6,7 +6,7 @@ const Footer = () => {
         <footer className="p-4 bg-pink-200 text-black py-5 ">
             <div className='flex flex-row  justify-center '>
             <div className="container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 justify-items-center">
-                {/* Footer Info Section */}
+             
                 <div className="footer-info ">
                     <h4 className='py-2 font-semibold'>EventMaster</h4>
                     <p className='text-sm'>
@@ -16,7 +16,6 @@ const Footer = () => {
                     </p>
                 </div>
 
-                {/* Quick Links Section */}
                 <div className="footer-links ">
                     <h4 className='py-2 font-semibold'>Quick Links</h4>
                     <ul className='text-sm'>
@@ -26,7 +25,6 @@ const Footer = () => {
                     </ul>
                 </div>
 
-                {/* Our Reach Section */}
                 <div className="footer-info ">
                     <h2 className='py-2 font-semibold'>Our Reach</h2>
                     <div className='text-sm flex flex-col '>
@@ -35,7 +33,6 @@ const Footer = () => {
                     </div>
                 </div>
 
-                {/* Social Media Section */}
                 <div className="footer-social ">
                     <h4 className='py-2 font-semibold'>Follow Us</h4>
                     <ul className='text-sm'>
@@ -46,13 +43,13 @@ const Footer = () => {
                 </div>
 
             </div>
+                            
             </div>
             <hr className='my-4' />
             <div className="footer-bottom text-center">
                 <p className="text-sm">&copy; 2025 EventMaster. All Rights Reserved.</p>
             </div>
            
-
         </footer>
     );
 };
